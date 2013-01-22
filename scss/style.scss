@@ -1,0 +1,33 @@
+/*!
+Theme Name: Genesis Child Theme Starter
+Theme URI: http://www.THEME.com
+Description: WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes.
+Author: Matt Banks
+Author URI: http://www.kernelcreativemedia.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.0
+
+Template: genesis
+*/
+
+// Compass imports
+@import "compass";
+
+// Reset, Variables, Mixins, Etc
+// DO NOT EDIT ORDER OF FILES
+@import "variables";
+@import "mixins";
+
+// Genesis
+@import "genesis";
+
+// Page and Site Styles
+@import "page";
+@import "widgets";
+@import "search";
+@import "comments";
+@import "forms";
+
+// Helper Classes
+@import "helpers";
