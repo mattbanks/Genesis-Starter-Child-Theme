@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 1.1.1
+Version: 1.1.2
 
 ## Contributors:
 
@@ -39,6 +39,10 @@ I use [CodeKit](http://incident57.com/codekit/) for Compass/SCSS compiling, but 
 * [Gravity Forms](http://www.gravityforms.com/)
 
 ### Changelog
+
+#### Version 1.1.2
+
+* fix improper footer function
 
 #### Version 1.1.1
 
