@@ -160,10 +160,8 @@ function mb_viewport_meta_tag() {
  * Footer
  */
 function mb_footer() {
-	echo '<p class="copyright">&copy; ';
-	echo date("Y") . " ";
-	bloginfo('name');
-	echo '</p>';
+	echo '<div class="one-half first" id="footer-left">' . wpautop( genesis_get_option( 'footer-left', 'child-settings' ) ) . '</div>';
+	echo '<div class="one-half" id="footer-right">' . wpautop( genesis_get_option( 'footer-right', 'child-settings' ) ) . '</div>';
 }
 
 /**
