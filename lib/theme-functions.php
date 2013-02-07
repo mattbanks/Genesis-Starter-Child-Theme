@@ -150,6 +150,13 @@ function mb_custom_favicon_filter( $favicon_url ) {
 }
 
 /**
+ * Load apple touch icon in header
+ */
+function mb_apple_touch_icon() {
+	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/images/apple-touch-icon.png">';
+}
+
+/**
  * Responsive Meta Tag
  */
 function mb_viewport_meta_tag() {

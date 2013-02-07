@@ -112,6 +112,9 @@ function child_theme_setup() {
 	// Load custom favicon to header
 	add_filter( 'genesis_pre_load_favicon', 'mb_custom_favicon_filter' );
 
+	// Load Apple touch icon in header
+	add_filter( 'genesis_meta', 'mb_apple_touch_icon' );
+
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
