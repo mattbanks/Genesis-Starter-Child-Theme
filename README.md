@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 1.1
+Version: 1.1.1
 
 ## Contributors:
 
@@ -40,12 +40,15 @@ I use [CodeKit](http://incident57.com/codekit/) for Compass/SCSS compiling, but 
 
 ### Changelog
 
+#### Version 1.1.1
+
+* added `templates` folder for page templates with Portfolio page template (as an example)
+
 #### Version 1.1
 
 * code cleanup in `functions.php` - hooks and filters now here, functions moved to `lib/theme-functions.php`
 * added more functions and tweaked others to streamline development time
 * added `lib/theme-views.php` for placing all hooked functions for various pages (ie. custom queries, loops, addons, etc)
-* added `templates` folder for page templates
 
 #### Version 1.0
 
