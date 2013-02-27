@@ -14,6 +14,20 @@ add_action('genesis_setup','child_theme_setup', 15);
 function child_theme_setup() {
 
 	/****************************************
+	Define child theme version
+	*****************************************/
+
+	define( 'CHILD_THEME_VERSION', filemtime( get_stylesheet_directory() . '/style.css' ) );
+
+
+	/****************************************
+	Include theme helper functions
+	*****************************************/
+
+	include_once( CHILD_DIR . '/lib/theme-helpers.php' );
+
+
+	/****************************************
 	Setup child theme functions
 	*****************************************/
 
@@ -99,6 +113,9 @@ function child_theme_setup() {
 
 	// Show Kitchen Sink in WYSIWYG Editor
 	add_filter( 'tiny_mce_before_init', 'mb_unhide_kitchensink' );
+
+	// Define custom post type capabilities for use with Members
+	add_action( 'admin_init', 'mb_add_post_type_caps' );
 
 
 	/****************************************
