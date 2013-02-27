@@ -206,6 +206,13 @@ function mb_remove_more_jump_link($link) {
 	return $link;
 }
 
+/**
+ * Define custom post type capabilities for use with Members
+ */
+function mb_add_post_type_caps() {
+	// mb_add_capabilities( 'portfolio' );
+}
+
 
 /****************************************
 Misc Theme Functions
