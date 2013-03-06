@@ -89,6 +89,9 @@ function child_theme_setup() {
 	// Setup Child Theme Settings
 	include_once( CHILD_DIR . '/lib/child-theme-settings.php' );
 
+	// Prevent File Modifications
+	define ( 'DISALLOW_FILE_EDIT', true );
+
 	// Set Content Width
 	$content_width = apply_filters( 'content_width', 740, 740, 1140 );
 
@@ -158,6 +161,17 @@ function child_theme_setup() {
 	*****************************************/
 
 	include_once( CHILD_DIR . '/lib/theme-views.php' );
+
+
+	/****************************************
+	Require Plugins
+	*****************************************/
+
+	require_once( CHILD_DIR . '/lib/class-tgm-plugin-activation.php' );
+	require_once( CHILD_DIR . '/lib/theme-require-plugins.php' );
+
+	add_action( 'tgmpa_register', 'mb_register_required_plugins' );
+
 }
 
 
