@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 1.1.3
+Version: 1.1.4
 
 ## Contributors:
 
@@ -37,8 +37,14 @@ I use [CodeKit](http://incident57.com/codekit/) for Compass/SCSS compiling, but 
 * [Google Analytics for WordPress by Yoast](http://wordpress.org/extend/plugins/google-analytics-for-wordpress/)
 * [W3 Total Cache](http://wordpress.org/extend/plugins/w3-total-cache/)
 * [Gravity Forms](http://www.gravityforms.com/)
+* [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Version 1.1.4
+
+* add [TGM Plugin Activation](http://tgmpluginactivation.com/) to require plugins be installed and activated
+* prevent file editing in theme editor
 
 #### Version 1.1.3
 
