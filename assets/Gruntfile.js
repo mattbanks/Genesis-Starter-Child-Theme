@@ -36,13 +36,14 @@ module.exports = function(grunt) {
         // concatenation and minification all in one
         uglify: {
             dist: {
+                options: {
+                    sourceMap: 'js/map/source-map.js'
+                },
                 files: {
                     'js/plugins.min.js': [
                         'js/source/plugins.js'
                     ],
-                    'js/main.min.js': [
-                        'js/source/main.js'
-                    ]
+                    'js/main.min.js': [ 'js/source/main.js' ]
                 }
             }
         },
