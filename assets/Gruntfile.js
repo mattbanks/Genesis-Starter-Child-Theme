@@ -3,6 +3,10 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        // Live Reload
+        livereload: {
+        },
+
         // let us know if our JS is sound
         jshint: {
             options: {
@@ -26,21 +30,17 @@ module.exports = function(grunt) {
                     "jQuery": true,
                     "alert": true
                 }
-            },
-            all: [
-                'Gruntfile.js',
-                'js/source/*.js'
-            ]
+            }
         },
 
         // concatenation and minification all in one
         uglify: {
             dist: {
                 files: {
-                    'js/build/vendor.min.js': [
-                        'js/vendor/modernizr-2.6.2.min.js'
+                    'js/plugins.min.js': [
+                        'js/source/plugins.js'
                     ],
-                    'js/build/main.min.js': [
+                    'js/main.min.js': [
                         'js/source/main.js'
                     ]
                 }
@@ -51,14 +51,14 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    sassDir: 'styles/source',
-                    cssDir: 'styles/build',
+                    sassDir: 'scss',
+                    cssDir: '../',
                     imagesDir: 'images',
                     images: 'images',
-                    javascriptsDir: 'js/build',
+                    javascriptsDir: 'js',
                     fontsDir: 'fonts',
                     environment: 'production',
-                    outputStyle: 'expanded',
+                    outputStyle: 'compressed',
                     relativeAssets: true,
                     noLineComments: true,
                     force: true
@@ -67,21 +67,20 @@ module.exports = function(grunt) {
         },
 
         // watch our project for changes
-        watch: {
+        regarde: {
             compass: {
                 files: [
-                    'styles/source/*',
-                    'styles/source/**/*',
-                    'styles/vendor/*',
-                    'styles/vendor/**/*'
+                    'scss/*',
+                    'scss/**/*'
                 ],
-                tasks: ['compass']
+                tasks: ['compass', 'livereload']
             },
             js: {
                 files: [
-                    '<%= jshint.all %>'
+                    'Gruntfile.js',
+                    'js/source/*.js'
                 ],
-                tasks: ['jshint', 'uglify']
+                tasks: ['jshint', 'uglify', 'livereload']
             }
         }
 
@@ -91,14 +90,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-regarde');
+    grunt.loadNpmTasks('grunt-contrib-livereload');
 
     // register task
     grunt.registerTask('default', [
+        'livereload-start',
         'jshint',
         'compass',
         'uglify',
-        'watch'
+        'regarde'
     ]);
 
 };
