@@ -83,6 +83,22 @@ module.exports = function(grunt) {
                 ],
                 tasks: ['jshint', 'uglify', 'livereload']
             }
+        },
+
+        // image optimization
+        imagemin: {
+            dist: {
+                options: {
+                    optimizationLevel: 7,
+                    progressive: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'images/',
+                    src: '**/*',
+                    dest: 'images/'
+                }]
+            }
         }
 
     });
@@ -91,6 +107,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-regarde');
     grunt.loadNpmTasks('grunt-contrib-livereload');
 
