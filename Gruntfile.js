@@ -3,37 +3,36 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        // Live Reload
+        // live reload, in case you want to change the port or anything
         livereload: {
         },
 
-        // let us know if our JS is sound
+        // javascript linting with jshint
         jshint: {
             options: {
                 "bitwise": true,
-                "browser": true,
-                "curly": true,
                 "eqeqeq": true,
                 "eqnull": true,
+                "immed": true,
+                "newcap": true,
                 "es5": true,
                 "esnext": true,
-                "immed": true,
-                "jquery": true,
                 "latedef": true,
-                "newcap": true,
                 "noarg": true,
                 "node": true,
-                "strict": false,
-                "trailing": true,
                 "undef": true,
-                "globals": {
-                    "jQuery": true,
-                    "alert": true
-                }
-            }
+                "browser": true,
+                "trailing": true,
+                "jquery": true,
+                "curly": true
+            },
+            all: [
+                'Gruntfile.js',
+                'assets/js/source/**/*.js'
+            ]
         },
 
-        // concatenation and minification all in one
+        // uglify to concat, minify, and make source maps
         uglify: {
             dist: {
                 options: {
@@ -50,7 +49,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // style (Sass) compilation via Compass
+        // compass and scss
         compass: {
             dist: {
                 options: {
@@ -60,20 +59,14 @@ module.exports = function(grunt) {
             }
         },
 
-        // watch our project for changes
+        // regarde to watch for changes and trigger compass, jshint, uglify and live reload
         regarde: {
             compass: {
-                files: [
-                    'assets/scss/*',
-                    'assets/scss/**/*'
-                ],
+                files: 'assets/scss/**/*',
                 tasks: ['compass', 'livereload']
             },
             js: {
-                files: [
-                    'Gruntfile.js',
-                    'assets/js/source/*.js'
-                ],
+                files: '<%= jshint.all %>',
                 tasks: ['jshint', 'uglify', 'livereload']
             }
         },
