@@ -37,13 +37,15 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 options: {
-                    sourceMap: 'js/map/source-map.js'
+                    sourceMap: 'assets/js/map/source-map.js'
                 },
                 files: {
-                    'js/plugins.min.js': [
-                        'js/source/plugins.js'
+                    'assets/js/plugins.min.js': [
+                        'assets/js/source/plugins.js'
                     ],
-                    'js/main.min.js': [ 'js/source/main.js' ]
+                    'assets/js/main.min.js': [
+                        'assets/js/source/main.js'
+                    ]
                 }
             }
         },
@@ -52,16 +54,7 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    sassDir: 'scss',
-                    cssDir: '../',
-                    imagesDir: 'images',
-                    images: 'images',
-                    javascriptsDir: 'js',
-                    fontsDir: 'fonts',
-                    environment: 'production',
-                    outputStyle: 'compressed',
-                    relativeAssets: true,
-                    noLineComments: true,
+                    config: 'config.rb',
                     force: true
                 }
             }
@@ -71,15 +64,15 @@ module.exports = function(grunt) {
         regarde: {
             compass: {
                 files: [
-                    'scss/*',
-                    'scss/**/*'
+                    'assets/scss/*',
+                    'assets/scss/**/*'
                 ],
                 tasks: ['compass', 'livereload']
             },
             js: {
                 files: [
                     'Gruntfile.js',
-                    'js/source/*.js'
+                    'assets/js/source/*.js'
                 ],
                 tasks: ['jshint', 'uglify', 'livereload']
             }
@@ -94,9 +87,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'images/',
+                    cwd: 'assets/images/',
                     src: '**/*',
-                    dest: 'images/'
+                    dest: 'assets/images/'
                 }]
             }
         }
