@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 1.1.4
+Version: 2.0
 
 ## Contributors:
 
@@ -8,17 +8,18 @@ Matt Banks ( [@mattbanks](http://twitter.com/mattbanks) / [kernelcreativemedia.c
 
 ## Summary
 
-WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS. Tested with WordPress 3.5 and Genesis 1.9.1.
+WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS and Grunt. Tested with WordPress 3.5.1 and Genesis 1.9.1.
 
 ## Usage
 
-Rename folder to your theme name, change `scss/style.scss` intro block to your theme information, and begin development. Code as you will.
+The theme is setup to use [Grunt](http://gruntjs.com/) to compile Compass/SCSS, lint, concatenate and minify JavaScript (with source maps), optimize images, with flexibility to add any additional tasks via the Gruntfile. Alternatively, you can use [CodeKit](http://incident57.com/codekit/), [LiveReload](http://livereload.com/) aor whatever else you prefer to compile the SCSS and manage the JavaScript.
 
-I use [CodeKit](http://incident57.com/codekit/) for Compass/SCSS compiling, but feel free to use whatever app or command line tool you prefer. [LiveReload](http://livereload.com/) and [Grunt](http://gruntjs.com/) are also great tools for compiling SCSS.
+Rename folder to your theme name, change the `assets/scss/style.scss` intro block to your theme information. Open the theme directory in terminal and run `npm install` to pull in all Grunt dependencies. Run `grunt` to execute tasks. Code as you will. To optimize images, run `grunt imagemin`.
 
-- Compile `scss/style.scss` to `style.css` (defined in config.rb for Compass)
-- Minify `js/plugins.js` to `js/plugins.min.js`
-- Minify `js/main.js` to `js/main.min.js`
+- Compile `assets/scss/style.scss` to `style.css` (all paths defined in config.rb for Compass)
+- Compile `assets/scss/editor-style.scss` to `editor-style.css`
+- Concatenate and minify all plugins in `assets/js/vender` and `assets/js/source/plugins.js` to `assets/js/plugins.min.js`
+- Minify `assets/js/source/main.js` to `assets/js/main.min.js`
 - ??
 - Profit
 
@@ -40,6 +41,11 @@ I use [CodeKit](http://incident57.com/codekit/) for Compass/SCSS compiling, but 
 * [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Version 2.0
+
+* reorganize code in `assets` folder for fonts, images, js and scss
+* setup Gruntfile to use Grunt for all compiling, concatenation and minification
 
 #### Version 1.1.4
 
