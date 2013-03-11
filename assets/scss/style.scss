@@ -16,18 +16,18 @@ Template: genesis
 
 // Reset, Variables, Mixins, Etc
 // DO NOT EDIT ORDER OF FILES
-@import "variables";
-@import "mixins";
+@import "partials/variables";
+@import "partials/mixins";
 
 // Genesis
-@import "genesis";
+@import "partials/genesis";
 
 // Page and Site Styles
-@import "page";
-@import "widgets";
-@import "search";
-@import "comments";
-@import "forms";
+@import "partials/page";
+@import "partials/widgets";
+@import "partials/search";
+@import "partials/comments";
+@import "partials/forms";
 
 // Helper Classes
-@import "helpers";
+@import "partials/helpers";
