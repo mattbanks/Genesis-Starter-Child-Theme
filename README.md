@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.0
+Version: 2.1
 
 ## Contributors:
 
@@ -23,6 +23,10 @@ Rename folder to your theme name, change the `assets/scss/style.scss` intro bloc
 - ??
 - Profit
 
+### Deployment
+
+The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/grunt-rsync). The Gruntfile includes setups for staging and production - edit your paths and host, then run `grunt rsync:staging` or `grunt rsync:production` to deploy your files via rsync.
+
 ### Features
 
 1. Compass & SCSS with easy-to-use of mixins ready to go
@@ -41,6 +45,10 @@ Rename folder to your theme name, change the `assets/scss/style.scss` intro bloc
 * [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Version 2.1
+
+* add deployments via rsync
 
 #### Version 2.0
 
