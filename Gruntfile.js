@@ -87,6 +87,26 @@ module.exports = function(grunt) {
                     dest: 'assets/images/'
                 }]
             }
+        },
+
+        // deploy via rsync
+        rsync: {
+            staging: {
+                src: "./",
+                dest: "~/path/to/theme",
+                host: "user@host.com",
+                recursive: true,
+                syncDest: true,
+                exclude: ['.git*', 'node_modules', '.sass-cache', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb']
+            },
+            production: {
+                src: "./",
+                dest: "~/path/to/theme",
+                host: "user@host.com",
+                recursive: true,
+                syncDest: true,
+                exclude: '<%= rsync.staging.exclude %>'
+            }
         }
 
     });
@@ -98,6 +118,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-regarde');
     grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-rsync');
 
     // register task
     grunt.registerTask('default', [
