@@ -91,3 +91,4 @@ Without these projects, this WordPress Genesis Starter Child Theme wouldn't be w
 * [Genesis Framework](http://my.studiopress.com/themes/genesis/)
 * [Bill Erickson's Genesis Child Theme](https://github.com/billerickson/BE-Genesis-Child)
 * [HTML5 Boilerplate](http://html5boilerplate.com)
+* [Grunt](http://gruntjs.com/)
