@@ -131,14 +131,15 @@ Frontend
 
 /**
  * HTML5 DOCTYPE
- * removes the default Genesis doctype, adds new html5 doctype
+ * removes the default Genesis doctype, adds new html5 doctype with IE8 detection
 */
 function mb_html5_doctype() {
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
+<!--[if IE 8]> <html class="lt-ie9" <?php language_attributes( 'html' ); ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html <?php language_attributes( 'html' ); ?>> <!--<![endif]-->
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
 <?php
 }
 
@@ -157,13 +158,6 @@ function mb_apple_touch_icon() {
 }
 
 /**
- * Responsive Meta Tag
- */
-function mb_viewport_meta_tag() {
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
-}
-
-/**
  * Footer
  */
 function mb_footer() {
@@ -177,7 +171,7 @@ function mb_footer() {
 function mb_scripts() {
 	if ( !is_admin() ) {
     	// Modernizr
-		wp_enqueue_script('modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
+		// wp_enqueue_script('modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
 		// Custom plugins and scripts
 		wp_enqueue_script('customplugins', get_stylesheet_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
 		wp_enqueue_script('customscripts', get_stylesheet_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
