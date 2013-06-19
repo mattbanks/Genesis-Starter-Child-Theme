@@ -125,7 +125,13 @@ function child_theme_setup() {
 	Frontend
 	*****************************************/
 
-	// HTML5 doctype
+	// Add HTML5 markup structure
+	add_theme_support( 'genesis-html5' );
+
+	// Add viewport meta tag for mobile browsers
+	add_theme_support( 'genesis-responsive-viewport' );
+
+	// HTML5 doctype with conditional classes
 	remove_action( 'genesis_doctype', 'genesis_do_doctype' );
 	add_action( 'genesis_doctype', 'mb_html5_doctype' );
 
