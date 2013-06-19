@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.2
+Version: 2.3
 
 ## Contributors:
 
@@ -45,6 +45,11 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 * [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Version 2.3
+
+* remove duplicate meta tag function
+* add partials folder with social network sharing buttons partial as example
 
 #### Version 2.2
 
