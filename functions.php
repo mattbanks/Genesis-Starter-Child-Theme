@@ -144,9 +144,6 @@ function child_theme_setup() {
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
-	// Responsive Meta Tag
-	add_action( 'genesis_meta', 'mb_viewport_meta_tag' );
-
 	// Footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
 	add_action( 'genesis_footer', 'mb_footer' );
