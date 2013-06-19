@@ -23,3 +23,12 @@ function mb_add_capabilities( $posttype ) {
 	$role->add_cap( 'edit_private_' . $posttype . 's' );
 	$role->add_cap( 'edit_published_' . $posttype . 's' );
 }
+
+/**
+ * Shortcode to display current year and company name for copyright
+ */
+function mb_shortcode_copyright() {
+	$copyright = '&copy; ' . date('Y') . ' ' . get_bloginfo( 'name' );
+	return $copyright;
+}
+add_shortcode('copyright', 'mb_shortcode_copyright');
