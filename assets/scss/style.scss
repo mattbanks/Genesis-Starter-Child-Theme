@@ -16,14 +16,15 @@ Template: genesis
 
 // Reset, Variables, Mixins, Etc
 // DO NOT EDIT ORDER OF FILES
-@import "partials/variables";
 @import "partials/mixins";
+@import "partials/variables";
 
 // Genesis
 @import "partials/genesis";
 
 // Page and Site Styles
 @import "partials/page";
+@import "partials/posts";
 @import "partials/widgets";
 @import "partials/search";
 @import "partials/comments";
