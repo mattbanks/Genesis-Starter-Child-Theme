@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.1
+Version: 2.2
 
 ## Contributors:
 
@@ -8,7 +8,7 @@ Matt Banks ( [@mattbanks](http://twitter.com/mattbanks) / [kernelcreativemedia.c
 
 ## Summary
 
-WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS and Grunt. Tested with WordPress 3.5.1 and Genesis 1.9.1.
+WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS and Grunt. Tested with WordPress 3.5.1 and Genesis 2.0.0 beta 2.
 
 ## Usage
 
@@ -45,6 +45,12 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 * [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Version 2.2
+
+* update to Genesis 2.0.0 beta 2 for HTML5 markup and structure
+* tweak Gruntfile.js to fix LiveReload issues and generate source maps for both main.js and plugins.js
+* optimizations and tweaks here and there
 
 #### Version 2.1
 
