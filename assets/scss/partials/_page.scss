@@ -1,8 +1,23 @@
 /* GENERAL */
-body { background: white; font: $baseFont; }
+body { }
 
-a, a:visited { color: $linkColor; }
-a:hover { color: $linkHoverColor; }
+a,
+a:visited {
+	color: $linkColor;
+}
+a:hover {
+	color: $linkHoverColor;
+}
+
+::-moz-selection {
+    background: $selectionColor;
+    text-shadow: none;
+}
+
+::selection {
+    background: $selectionColor;
+    text-shadow: none;
+}
 
 /* HEADINGS / TYPOGRAPHY */
 h1, h2, h3, h4 { }
@@ -12,30 +27,32 @@ h3 { }
 h4 { }
 
 /* STRUCTURE */
-#wrap { width: $pageWidth; }
+.site-container { max-width: $pageWidth; }
 .wrap { }
 
 /* HEADER */
-#header { }
-.widget-area { }
-#title-area { }
+.site-header { }
+.title-area { }
+.site-title { }
+.site-description { }
+.header-widget-area { }
 
 /* NAV */
-#nav { }
-#subnav { }
+.nav-primary { }
+.nav-secondary { }
 
 /* MAIN */
-#inner { }
-#content-sidebar-wrap
-#content
+.site-inner { }
+.content-sidebar-wrap { }
+.content { }
 
 /* SIDEBAR */
-#sidebar { }
+.sidebar-primary { }
 
 /* FOOTER */
-#footer { }
-.gototop { }
-.creds { }
+.footer-widgets { }
+.site-footer { }
+
 
 /****************************************
 PAGE TEMPLATES
