@@ -83,6 +83,10 @@ function child_theme_setup() {
 	// Remove Genesis Theme Settings Metaboxes
 	add_action( 'genesis_theme_settings_metaboxes', 'mb_remove_genesis_metaboxes' );
 
+	// Reposition Genesis Layout Settings Metabox
+	remove_action( 'admin_menu', 'genesis_add_inpost_layout_box' );
+	add_action( 'admin_menu', 'mb_add_inpost_layout_box' );
+
 	// Don't update theme
 	add_filter( 'http_request_args', 'mb_dont_update_theme', 5, 2 );
 
@@ -184,3 +188,6 @@ Misc Theme Functions
 
 // Unregister the superfish scripts
 add_action( 'wp_enqueue_scripts', 'mb_unregister_superfish' );
+
+// Filter Yoast SEO Metabox Priority
+add_filter( 'wpseo_metabox_prio', function() { return 'low';});
