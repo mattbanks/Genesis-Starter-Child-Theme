@@ -37,6 +37,18 @@ function mb_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
 }
 
 /**
+ * Reposition Genesis Layout Metabox
+ */
+function mb_add_inpost_layout_box() {
+	if ( ! current_theme_supports( 'genesis-inpost-layouts' ) )
+		return;
+	foreach ( (array) get_post_types( array( 'public' => true ) ) as $type ) {
+		if ( post_type_supports( $type, 'genesis-layouts' ) )
+			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
+	}
+}
+
+/**
  * Don't Update Theme
  * @since 1.0.0
  *
