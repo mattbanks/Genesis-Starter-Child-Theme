@@ -231,3 +231,10 @@ function mb_unregister_superfish() {
 	wp_deregister_script( 'superfish' );
 	wp_deregister_script( 'superfish-args' );
 }
+
+/**
+ * Filter Yoast SEO Metabox Priority
+ */
+function mb_filter_yoast_seo_metabox() {
+	return 'low';
+}
