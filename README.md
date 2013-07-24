@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.3
+Version: 2.4
 
 ## Contributors:
 
@@ -8,7 +8,7 @@ Matt Banks ( [@mattbanks](http://twitter.com/mattbanks) / [kernelcreativemedia.c
 
 ## Summary
 
-WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS and Grunt. Tested with WordPress 3.5.1 and Genesis 2.0.0 beta 2.
+WordPress Starter Theme for use as Child Theme of the Genesis Framework for building custom themes, using Compass/SCSS and Grunt. Tested with WordPress 3.6 RC2 and Genesis 2.0.0 RC1.
 
 ## Usage
 
@@ -22,6 +22,10 @@ Rename folder to your theme name, change the `assets/scss/style.scss` intro bloc
 - Minify `assets/js/source/main.js` to `assets/js/main.min.js`
 - ??
 - Profit
+
+### Bower
+
+Supports [bower](https://github.com/bower/bower) to install and manage JavaScript dependencies in the `assets/js/vendor` folder.
 
 ### Deployment
 
@@ -45,6 +49,11 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 * [Pods Framework](http://www.podsframework.org/)
 
 ### Changelog
+
+#### Verion 2.4
+
+* add bower support with `.bowerrc` (thanks [tjtate](https://github.com/tjtate))
+* update to Genesis 2.0 RC1
 
 #### Version 2.3
 
@@ -103,3 +112,4 @@ Without these projects, this WordPress Genesis Starter Child Theme wouldn't be w
 * [Bill Erickson's Genesis Child Theme](https://github.com/billerickson/BE-Genesis-Child)
 * [HTML5 Boilerplate](http://html5boilerplate.com)
 * [Grunt](http://gruntjs.com/)
+* [Bower](https://github.com/bower/bower)
