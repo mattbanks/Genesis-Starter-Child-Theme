@@ -48,6 +48,8 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 * [Gravity Forms](http://www.gravityforms.com/)
 * [Pods Framework](http://www.podsframework.org/)
 
+![dependencies](https://david-dm.org/mattbanks/Genesis-Starter-Child-Theme.png)
+
 ### Changelog
 
 #### Verion 2.4
