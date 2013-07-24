@@ -1,11 +1,11 @@
 /*
 	Theme Name: Genesis
 	Theme URI: http://my.studiopress.com/themes/genesis
-	Description: The industry standard in design frameworks for WordPress. Please do not modify this stylesheet, as it might get overridden in updates.
+	Description: The industry standard in design frameworks for WordPress. Please do not modify this style sheet, as it might get overridden in updates.
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
-	Version: 2.0.0-beta2
-	Tags: black, orange, white, one-column, two-columns, three-columns, fixed-width, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+	Version: 2.0.0-RC1
+	Tags: black, orange, white, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-menu, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 	License: GPL-2.0+
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,12 +18,11 @@
 
 */
 
-
 /* Table of Contents
 
 	- Imports
 	- HTML5 Reset
-		- Baseline Reset
+		- Baseline Normalize
 		- Box Sizing
 		- Float Clearing
 	- Defaults
@@ -31,6 +30,7 @@
 		- Headings
 		- Objects
 		- Forms
+		- Tables
 	- Structure and Layout
 		- Site Containers
 		- Column Widths and Positions
@@ -40,10 +40,11 @@
 		- Genesis
 		- Headings
 	- Widgets
-		- Featured Page and Featured Post
+		- Featured Content
 	- Plugins
 		- Genesis eNews Extended
 		- Genesis Latest Tweets
+		- Jetpack
 		- Gravity Forms
 	- Site Header
 		- Title Area
@@ -71,19 +72,18 @@
 Imports
 ---------------------------------------------------------------------------------------------------- */
 
-// @import url(//fonts.googleapis.com/css?family=Lato:300,700);
+@import url(//fonts.googleapis.com/css?family=Lato:300,700);
 
 
 /*
 HTML5 Reset
 ---------------------------------------------------------------------------------------------------- */
 
-/* Baseline Reset (normalize.css 2.1.2)
-	Link: http://necolas.github.com/normalize.css/
+/* Baseline Normalize
+	normalize.css v2.1.2 | MIT License | git.io/normalize
 --------------------------------------------- */
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
-
 
 /* Box Sizing
 --------------------------------------------- */
@@ -126,6 +126,13 @@ video:before, video:after,
 	display: table;
 }
 
+.line::after,
+.line::before,
+.line-pre::after,
+.line-pre::before {
+    content: '';
+}
+
 address:after,
 article:after,
 aside:after,
@@ -166,7 +173,7 @@ html {
 }
 
 body {
-	background: #fff;
+	background-color: #f5f5f5;
 	color: #666;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
@@ -181,7 +188,8 @@ input:focus,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-textarea:focus {
+textarea:focus,
+.button {
 	-webkit-transition: all 0.1s ease-in-out;
 	-moz-transition:    all 0.1s ease-in-out;
 	-ms-transition:     all 0.1s ease-in-out;
@@ -190,12 +198,12 @@ textarea:focus {
 }
 
 ::-moz-selection {
-	background: #333;
+	background-color: #333;
 	color: #fff;
 }
 
 ::selection {
-	background: #333;
+	background-color: #333;
 	color: #fff;
 }
 
@@ -235,9 +243,8 @@ blockquote::before {
 }
 
 blockquote {
-	margin: 0;
-	padding: 24px 40px;
-	padding: 2.4rem 4rem;
+	margin: 40px 40px 24px;
+	margin: 4rem 4rem 2.4rem;
 }
 
 blockquote::before {
@@ -251,13 +258,9 @@ blockquote::before {
 	top: -10px;
 }
 
-pre {
-	background: #333;
-	color: #ccc;
-	overflow: scroll;
-	padding: 0 2rem;
-	padding: 0 20px;
-	white-space: pre;
+.entry-content code {
+    background-color: #333;
+    color: #ddd;
 }
 
 cite {
@@ -320,7 +323,8 @@ embed,
 iframe,
 img,
 object,
-video {
+video,
+.wp-caption {
 	max-width: 100%;
 }
 
@@ -335,12 +339,11 @@ img {
 input,
 select,
 textarea {
-	background: #fff;
+	background-color: #fff;
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	box-shadow: 1px 1px 3px #eee inset;
 	color: #999;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
 	padding: 16px;
@@ -350,12 +353,13 @@ textarea {
 
 input:focus,
 textarea:focus {
-	border: 1px solid #aaa;
+	border: 1px solid #999;
 	outline: none;
 }
 
 ::-moz-placeholder {
 	color: #999;
+	opacity: 1;
 }
 
 ::-webkit-input-placeholder {
@@ -365,8 +369,10 @@ textarea:focus {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
-	background: #333;
+input[type="submit"],
+.button,
+.entry-content .button {
+	background-color: #333;
 	border: none;
 	box-shadow: none;
 	color: #fff;
@@ -382,13 +388,56 @@ input[type="submit"] {
 button:hover,
 input:hover[type="button"],
 input:hover[type="reset"],
-input:hover[type="submit"] {
-	background: #f15123;
+input:hover[type="submit"],
+.button:hover,
+.entry-content .button:hover {
+	background-color: #f15123;
+}
+
+.entry-content .button:hover {
+	color: #fff;
+}
+
+.button {
+	border-radius: 3px;
+	display: inline-block;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button {
 	display: none;
+}
+
+/* Tables
+--------------------------------------------- */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 2;
+	margin-bottom: 40px;
+	margin-bottom: 4rem;
+	width: 100%;
+}
+
+tbody {
+	border-bottom: 1px solid #ddd;
+}
+
+th,
+td {
+	text-align: left;
+}
+
+th {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+td {
+	border-top: 1px solid #ddd;
+	padding: 6px 0;
+	padding: 0.6rem 0;
 }
 
 
@@ -399,13 +448,13 @@ Structure and Layout
 /* Site Containers
 --------------------------------------------- */
 
+.site-inner,
 .wrap {
 	margin: 0 auto;
 	max-width: 1140px;
 }
 
 .site-inner {
-	background: #f5f5f5;
 	clear: both;
 	padding-top: 40px;
 	padding-top: 4rem;
@@ -555,10 +604,6 @@ Common Classes
 	margin-left: 2.4rem;
 }
 
-.search-form {
-	width: 50%;
-}
-
 .search-form input[type="submit"] {
 	border: 0;
 	clip: rect(0, 0, 0, 0);
@@ -610,7 +655,6 @@ img.alignright,
 	font-size: 14px;
 	font-size: 1.4rem;
 	font-weight: 700;
-	margin: 0;
 	text-align: center;
 }
 
@@ -635,13 +679,12 @@ img.alignright,
 
 .archive-description,
 .author-box {
-	background: #fff;
+	background-color: #fff;
 	margin-bottom: 40px;
 	margin-bottom: 4rem;
 }
 
 .archive-description {
-	margin-bottom: 4rem;
 	padding: 40px 40px 24px;
 	padding: 4rem 4rem 2.4rem;
 }
@@ -665,7 +708,7 @@ img.alignright,
 }
 
 .author-box p {
-	margin: 0;
+	margin-bottom: 0;
 }
 
 .author-box .avatar {
@@ -717,7 +760,7 @@ img.alignright,
 Widgets
 ---------------------------------------------------------------------------------------------------- */
 
-/* Featured Page and Featured Post
+/* Featured Content
 --------------------------------------------- */
 
 .featured-content .entry {
@@ -765,14 +808,14 @@ Plugins
 }
 
 .enews-widget input[type="submit"] {
-	background: #f15123;
+	background-color: #f15123;
 	color: #fff;
 	margin: 0;
 	width: 100%;
 }
 
 .enews-widget input:hover[type="submit"] {
-	background: #fff;
+	background-color: #fff;
 	color: #333;
 }
 
@@ -782,6 +825,13 @@ Plugins
 .latest-tweets ul li {
 	margin-bottom: 16px;
 	margin-bottom: 1.6rem;
+}
+
+/* Jetpack
+--------------------------------------------- */
+
+img#wpstats {
+	display: none;
 }
 
 /* Gravity Forms
@@ -816,6 +866,10 @@ div.gform_wrapper .gform_footer input[type="submit"] {
 /*
 Site Header
 ---------------------------------------------------------------------------------------------------- */
+
+.site-header {
+	background-color: #fff;
+}
 
 .site-header .wrap {
 	padding: 40px 0;
@@ -860,7 +914,7 @@ Site Header
 	font-size: 1.6rem;
 	font-weight: 300;
 	line-height: 1;
-	margin: 0;
+	margin-bottom: 0;
 }
 
 /* Full width header, no widgets */
@@ -921,15 +975,11 @@ Site Navigation
 	letter-spacing: 1px;
 	letter-spacing: 0.1rem;
 	line-height: 1.5;
-	margin: 0;
-	padding: 0;
 	width: 100%;
 }
 
 .genesis-nav-menu .menu-item {
 	display: inline-block;
-	margin: 0;
-	padding: 0;
 	text-align: left;
 }
 
@@ -958,9 +1008,7 @@ Site Navigation
 
 .genesis-nav-menu .sub-menu {
 	left: -9999px;
-	margin: 0;
 	opacity: 0;
-	padding: 0;
 	position: absolute;
 	-webkit-transition: opacity .4s ease-in-out;
 	-moz-transition:    opacity .4s ease-in-out;
@@ -972,7 +1020,7 @@ Site Navigation
 }
 
 .genesis-nav-menu .sub-menu a {
-	background: #fff;
+	background-color: #fff;
 	border: 1px solid #eee;
 	border-top: none;
 	font-size: 14px;
@@ -1029,10 +1077,6 @@ Site Navigation
 	padding: 1.4rem 0 0;
 }
 
-.genesis-nav-menu .search-form {
-	width: 100%;
-}
-
 /* Site Header Navigation
 --------------------------------------------- */
 
@@ -1048,7 +1092,7 @@ Site Navigation
 --------------------------------------------- */
 
 .nav-primary {
-	background: #333;
+	background-color: #333;
 }
 
 .nav-primary a:hover,
@@ -1060,6 +1104,13 @@ Site Navigation
 	color: #333;
 }
 
+/* Secondary Navigation
+--------------------------------------------- */
+
+.nav-secondary {
+	background-color: #fff;
+}
+
 
 /*
 Content Area
@@ -1069,7 +1120,7 @@ Content Area
 --------------------------------------------- */
 
 .entry {
-	background: #fff;
+	background-color: #fff;
 	border-radius: 3px;
 	margin-bottom: 40px;
 	margin-bottom: 4rem;
@@ -1099,8 +1150,8 @@ Content Area
 	margin-bottom: 2.6rem;
 }
 
-.entry-content ol li,
-.entry-content ul li {
+.entry-content ol,
+.entry-content ul {
 	margin-left: 40px;
 	margin-left: 4rem;
 }
@@ -1114,9 +1165,12 @@ Content Area
 }
 
 .entry-content ol ol,
-.entry-content ul ul,
-.entry-content .wp-caption p {
+.entry-content ul ul {
 	margin-bottom: 0;
+}
+
+.entry-content .search-form {
+	width: 50%;
 }
 
 .entry-meta {
@@ -1174,7 +1228,7 @@ Content Area
 }
 
 .navigation li a {
-	background: #333;
+	background-color: #333;
 	border-radius: 3px;
 	color: #fff;
 	cursor: pointer;
@@ -1185,42 +1239,47 @@ Content Area
 
 .navigation li a:hover,
 .navigation li.active a {
-	background: #f15123;
+	background-color: #f15123;
 }
 
 /* Comments
 --------------------------------------------- */
 
+.comment-respond,
 .entry-comments,
-#respond {
-	background: #fff;
-	padding: 40px;
-	padding: 4rem;
-}
-
-.entry-comments,
-.ping-list,
-#respond {
+.entry-pings {
+	background-color: #fff;
 	margin-bottom: 40px;
 	margin-bottom: 4rem;
 }
 
-.entry-comments a,
-#respond a {
+.entry-comments {
+	padding: 40px;
+	padding: 4rem;
+}
+
+.comment-respond,
+.entry-pings {
+	padding: 40px 40px 16px;
+	padding: 4rem 4rem 1.6rem;
+}
+
+.comment-respond a,
+.entry-comments a {
 	border-bottom: 1px solid #ddd;
 }
 
 .entry-comments .comment-author {
-	margin: 0;
+	margin-bottom: 0;
 }
 
-#respond input[type="email"],
-#respond input[type="text"],
-#respond input[type="url"] {
+.comment-respond input[type="email"],
+.comment-respond input[type="text"],
+.comment-respond input[type="url"] {
 	width: 50%
 }
 
-#respond label {
+.comment-respond label {
 	display: block;
 	margin-right: 12px;
 	margin-right: 1.2rem;
@@ -1229,6 +1288,9 @@ Content Area
 .comment-list li,
 .ping-list li {
 	list-style-type: none;
+}
+
+.comment-list li {
 	margin-top: 24px;
 	margin-top: 2.4rem;
 	padding: 32px;
@@ -1241,7 +1303,7 @@ Content Area
 }
 
 li.comment {
-	background: #f5f5f5;
+	background-color: #f5f5f5;
 	border: 2px solid #fff;
 	border-right: none;
 }
@@ -1251,11 +1313,15 @@ li.comment {
 	margin: 0 1.6rem 2.4rem 0;
 }
 
+.entry-pings .reply {
+	display: none;
+}
+
 .bypostauthor {
 }
 
 .form-allowed-tags {
-	background: #f5f5f5;
+	background-color: #f5f5f5;
 	font-size: 14px;
 	font-size: 1.4rem;
 	padding: 24px;
@@ -1275,16 +1341,14 @@ Sidebars
 	border-bottom: 1px solid #ddd;
 }
 
-.sidebar p:last-child,
-.sidebar ul {
-	margin: 0;
+.sidebar p:last-child {
+	margin-bottom: 0;
 }
 
 .sidebar li {
 	list-style-type: none;
 	margin-bottom: 6px;
 	margin-bottom: 0.6rem;
-	padding: 0;
 	word-wrap: break-word;
 }
 
@@ -1293,7 +1357,7 @@ Sidebars
 }
 
 .sidebar .widget {
-	background: #fff;
+	background-color: #fff;
 	border-radius: 3px;
 	margin-bottom: 40px;
 	margin-bottom: 4rem;
@@ -1301,12 +1365,8 @@ Sidebars
 	padding: 4rem;
 }
 
-.sidebar .search-form {
-	width: 100%;
-}
-
 .sidebar .enews-widget {
-	background: #333;
+	background-color: #333;
 }
 
 
@@ -1315,7 +1375,7 @@ Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background: #333;
+	background-color: #333;
 	color: #999;
 	clear: both;
 	padding: 40px 0 16px;
@@ -1351,7 +1411,7 @@ Footer Widgets
 }
 
 .footer-widgets a:hover {
-	color: #ccc;
+	color: #ddd;
 }
 
 .footer-widgets .widget {
@@ -1370,10 +1430,6 @@ Footer Widgets
 	word-wrap: break-word;
 }
 
-.footer-widgets .search-form {
-	width: 100%;
-}
-
 .footer-widgets .search-form input:focus {
 	border: 1px solid #ddd;
 }
@@ -1384,6 +1440,7 @@ Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
+	background-color: #fff;
 	color: #999;
 	font-size: 14px;
 	font-size: 1.4rem;
@@ -1397,7 +1454,7 @@ Site Footer
 }
 
 .site-footer p {
-	margin: 0;
+	margin-bottom: 0;
 }
 
 
@@ -1416,6 +1473,7 @@ Media Queries
 
 @media only screen and (max-width: 1139px) {
 
+	.site-inner,
 	.wrap {
 		max-width: 960px;
 	}
@@ -1449,6 +1507,10 @@ Media Queries
 
 @media only screen and (max-width: 1023px) {
 
+	body {
+		background-color: #fff;
+	}
+
 	.content,
 	.content-sidebar-sidebar .content,
 	.content-sidebar-sidebar .content-sidebar-wrap,
@@ -1462,17 +1524,19 @@ Media Queries
 	.sidebar-sidebar-content .content,
 	.sidebar-sidebar-content .content-sidebar-wrap,
 	.site-header .widget-area,
+	.site-inner,
 	.title-area,
 	.wrap {
 		width: 100%;
 	}
 
-	.header-image .site-header .wrap {
-		background-position: center top;
+	.site-header .wrap {
+		padding: 20px 0;
+		padding: 2rem 0;
 	}
 
-	.header-image .site-header .widget-area {
-		padding: 0;
+	.header-image .site-header .wrap {
+		background-position: center top;
 	}
 
 	.site-inner {
@@ -1482,17 +1546,14 @@ Media Queries
 
 	.archive-description,
 	.author-box,
+	.comment-respond,
 	.entry,
 	.entry-comments,
 	.entry-footer .entry-meta,
+	.header-image .site-header .widget-area,
 	.sidebar .widget,
-	.site-header,
-	#respond {
+	.site-header {
 		padding: 0;
-	}
-
-	.site-inner {
-		background: none;
 	}
 
 	.genesis-nav-menu li,
@@ -1554,17 +1615,13 @@ Media Queries
 @media only screen and (max-width: 767px) {
 
 	.five-sixths,
-	.four-fifths,
 	.four-sixths,
-	.one-fifth,
 	.one-fourth,
 	.one-half,
 	.one-sixth,
 	.one-third,
-	.three-fifths,
 	.three-fourths,
 	.three-sixths,
-	.two-fifths,
 	.two-fourths,
 	.two-sixths,
 	.two-thirds {
