@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.4
+Version: 2.5
 
 ## Contributors:
 
@@ -18,10 +18,12 @@ Rename folder to your theme name, change the `assets/scss/style.scss` intro bloc
 
 - Compile `assets/scss/style.scss` to `style.css` (all paths defined in config.rb for Compass)
 - Compile `assets/scss/editor-style.scss` to `editor-style.css`
-- Concatenate and minify all plugins in `assets/js/vender` and `assets/js/source/plugins.js` to `assets/js/plugins.min.js`
+- Concatenate and minify plugins in `assets/js/vender` and `assets/js/source/plugins.js` to `assets/js/plugins.min.js`
 - Minify `assets/js/source/main.js` to `assets/js/main.min.js`
 - ??
 - Profit
+
+To concatenate and minify your jQuery plugins, add them to the `assets/js/vendor` directory and add the `js` filename and path to the `Gruntfile` `uglify` task. Previous versions of the starter theme automatically pulled all plugins in the `vendor` directory, but this has changed to allow more granular control and for managing plugins and assets with bower.
 
 ### Bower
 
@@ -35,7 +37,7 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 
 1. Compass & SCSS with easy-to-use of mixins ready to go
 2. Easy to customize
-3. Modernizr 2.6.2 loaded in <head>
+3. Grunt and LiveReload to make it more gooder
 4. Child theme tweaks
 5. More to come!
 
@@ -51,6 +53,11 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 ![dependencies](https://david-dm.org/mattbanks/Genesis-Starter-Child-Theme.png)
 
 ### Changelog
+
+
+#### Version 2.5
+
+* manually manage plugins in `Gruntfile` instead of automatically pulling all files to streamline bower usage.
 
 #### Verion 2.4
 
