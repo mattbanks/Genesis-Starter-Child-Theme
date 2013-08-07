@@ -4,7 +4,7 @@
 	Description: The industry standard in design frameworks for WordPress. Please do not modify this style sheet, as it might get overridden in updates.
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
-	Version: 2.0.0-RC1
+	Version: 2.0.0
 	Tags: black, orange, white, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-menu, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 	License: GPL-2.0+
@@ -38,14 +38,14 @@
 	- Common Classes
 		- WordPress
 		- Genesis
-		- Headings
+		- Titles
 	- Widgets
 		- Featured Content
 	- Plugins
 		- Genesis eNews Extended
 		- Genesis Latest Tweets
-		- Jetpack
 		- Gravity Forms
+		- Jetpack
 	- Site Header
 		- Title Area
 		- Widget Area
@@ -55,7 +55,7 @@
 		- Secondary Navigation
 	- Content Area
 		- Entries
-		- Entry Navigation
+		- Pagination
 		- Comments
 	- Sidebars
 	- Footer Widgets
@@ -98,66 +98,37 @@ input[type="search"] {
 /* Float Clearing
 --------------------------------------------- */
 
-address:before, address:after,
-article:before, article:after,
-aside:before, aside:after,
-audio:before, audio:after,
-blockquote:before, blockquote:after,
-canvas:before, canvas:after,
-dd:before, dd:after,
-div:before, div:after,
-dl:before, dl:after,
-fieldset:before, fieldset:after,
-figcaption:before, figcaption:after,
-figure:before, figure:after,
-footer:before, footer:after,
-form:before, form:after,
-header:before, header:after,
-hr:before, hr:after,
-main:before, main:after,
-output:before, output:after,
-pre:before, pre:after,
-section:before, section:after,
-table:before, table:after,
-tfoot:before, tfoot:after,
-video:before, video:after,
-.clearfix:before, .clearfix:after {
+.archive-pagination:before,
+.clearfix:before,
+.entry:before,
+.entry-pagination:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.wrap:before {
 	content: " ";
 	display: table;
 }
 
-.line::after,
-.line::before,
-.line-pre::after,
-.line-pre::before {
-    content: '';
-}
-
-address:after,
-article:after,
-aside:after,
-audio:after,
-blockquote:after,
-canvas:after,
-dd:after,
-div:after,
-dl:after,
-fieldset:after,
-figcaption:after,
-figure:after,
-footer:after,
-form:after,
-header:after,
-hr:after,
-main:after,
-output:after,
-pre:after,
-section:after,
-table:after,
-tfoot:after,
-video:after,
-.clearfix:after {
+.archive-pagination:after,
+.clearfix:after,
+.entry:after,
+.entry-pagination:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.wrap:after {
 	clear: both;
+	content: " ";
+	display: table;
 }
 
 
@@ -259,8 +230,8 @@ blockquote::before {
 }
 
 .entry-content code {
-    background-color: #333;
-    color: #ddd;
+	background-color: #333;
+	color: #ddd;
 }
 
 cite {
@@ -277,13 +248,11 @@ h4,
 h5,
 h6 {
 	color: #333;
-	font-family: 'Lato', sans-serif;
+	font-family: Lato, sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
-	margin: 0;
-	margin-bottom: 16px;
-	margin-bottom: 1.6rem;
-	padding: 0;
+	margin: 0 0 16px;
+	margin: 0 0 1.6rem;
 }
 
 h1 {
@@ -377,8 +346,6 @@ input[type="submit"],
 	box-shadow: none;
 	color: #fff;
 	cursor: pointer;
-	letter-spacing: 1px;
-	letter-spacing: 0.1rem;
 	padding: 16px 24px;
 	padding: 1.6rem 2.4rem;
 	text-transform: uppercase;
@@ -665,7 +632,8 @@ img.alignright,
 	width: 100%;
 }
 
-.widget_calendar td {
+.widget_calendar td,
+.widget_calendar th {
 	text-align: center;
 }
 
@@ -716,7 +684,7 @@ img.alignright,
 	margin-right: 2.4rem;
 }
 
-/* Headings
+/* Titles
 --------------------------------------------- */
 
 .entry-title {
@@ -726,7 +694,7 @@ img.alignright,
 }
 
 .entry-title a,
-.sidebar .widgettitle a {
+.sidebar .widget-title a {
 	color: #333;
 }
 
@@ -734,17 +702,15 @@ img.alignright,
 	color: #666;
 }
 
-.widgettitle {
+.widget-title {
 	font-size: 16px;
 	font-size: 1.6rem;
-	letter-spacing: 1px;
-	letter-spacing: 0.1rem;
 	margin-bottom: 24px;
 	margin-bottom: 2.4rem;
 	text-transform: uppercase;
 }
 
-.sidebar .widgettitle a {
+.sidebar .widget-title a {
 	border: none;
 }
 
@@ -794,7 +760,11 @@ Plugins
 	color: #999;
 }
 
-.enews-widget .widgettitle {
+.sidebar .enews-widget {
+	background-color: #333;
+}
+
+.enews-widget .widget-title {
 	color: #fff;
 }
 
@@ -827,13 +797,6 @@ Plugins
 	margin-bottom: 1.6rem;
 }
 
-/* Jetpack
---------------------------------------------- */
-
-img#wpstats {
-	display: none;
-}
-
 /* Gravity Forms
 --------------------------------------------- */
 
@@ -862,6 +825,13 @@ div.gform_wrapper .gform_footer input[type="submit"] {
 	font-size: 1.4rem;
 }
 
+/* Jetpack
+--------------------------------------------- */
+
+img#wpstats {
+	display: none;
+}
+
 
 /*
 Site Header
@@ -880,12 +850,12 @@ Site Header
 --------------------------------------------- */
 
 .title-area {
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
 	float: left;
+	font-family: Lato, sans-serif;
+	font-weight: 700;
 	padding: 16px 0;
 	padding: 1.6rem 0;
-	width: 360px;
+	width: 320px;
 }
 
 .header-image .title-area {
@@ -895,8 +865,6 @@ Site Header
 .site-title {
 	font-size: 28px;
 	font-size: 2.8rem;
-	letter-spacing: 2px;
-	letter-spacing: 0.2rem;
 	line-height: 1;
 	margin: 0 0 8px;
 	margin: 0 0 0.8rem;
@@ -949,7 +917,7 @@ Site Header
 .site-header .widget-area {
 	float: right;
 	text-align: right;
-	width: 740px;
+	width: 800px;
 }
 
 .header-image .site-header .widget-area {
@@ -971,9 +939,7 @@ Site Navigation
 .genesis-nav-menu {
 	clear: both;
 	color: #999;
-	font-family: 'Lato', sans-serif;
-	letter-spacing: 1px;
-	letter-spacing: 0.1rem;
+	font-family: Lato, sans-serif;
 	line-height: 1.5;
 	width: 100%;
 }
@@ -1025,7 +991,6 @@ Site Navigation
 	border-top: none;
 	font-size: 14px;
 	font-size: 1.4rem;
-	letter-spacing: 0;
 	padding: 16px 20px;
 	padding: 1.6rem 2rem;
 	position: relative;
@@ -1174,7 +1139,6 @@ Content Area
 }
 
 .entry-meta {
-	clear: both;
 	color: #999;
 	font-size: 14px;
 	font-size: 1.4rem;
@@ -1208,26 +1172,22 @@ Content Area
 	display: block;
 }
 
-/* Entry Navigation
+/* Pagination
 --------------------------------------------- */
 
-.navigation {
-	clear: both;
+.archive-pagination,
+.entry-pagination {
 	font-size: 14px;
 	font-size: 1.4rem;
 	margin: 40px 0;
 	margin: 4rem 0;
 }
 
-.entry .navigation a {
-	border-bottom: 1px solid #ddd;
-}
-
-.navigation li {
+.archive-pagination li {
 	display: inline;
 }
 
-.navigation li a {
+.archive-pagination li a {
 	background-color: #333;
 	border-radius: 3px;
 	color: #fff;
@@ -1237,9 +1197,13 @@ Content Area
 	padding: 0.8rem 1.2rem;
 }
 
-.navigation li a:hover,
-.navigation li.active a {
+.archive-pagination li a:hover,
+.archive-pagination li.active a {
 	background-color: #f15123;
+}
+
+.entry-pagination a {
+	border-bottom: 1px solid #ddd;
 }
 
 /* Comments
@@ -1267,6 +1231,10 @@ Content Area
 .comment-respond a,
 .entry-comments a {
 	border-bottom: 1px solid #ddd;
+}
+
+.comment-content {
+	clear: both;
 }
 
 .entry-comments .comment-author {
@@ -1365,10 +1333,6 @@ Sidebars
 	padding: 4rem;
 }
 
-.sidebar .enews-widget {
-	background-color: #333;
-}
-
 
 /*
 Footer Widgets
@@ -1419,7 +1383,7 @@ Footer Widgets
 	margin-bottom: 2.4rem;
 }
 
-.footer-widgets .widgettitle {
+.footer-widgets .widget-title {
 	color: #fff;
 }
 
@@ -1462,11 +1426,14 @@ Site Footer
 Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-moz-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3/2),
+	only screen and (min-device-pixel-ratio: 1.5) {
 
 	.header-image .site-header .wrap {
 		background: url(images/logo@2x.png) no-repeat left;
-		background-size: 360px 164px;
+		background-size: 320px 164px;
 	}
 
 }
