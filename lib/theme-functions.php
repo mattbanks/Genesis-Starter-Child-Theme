@@ -90,8 +90,8 @@ function mb_remove_dashboard_widgets() {
 /**
  * Change Admin Menu Order
  */
-function mb_custom_menu_order($menu_ord) {
-	if (!$menu_ord) return true;
+function mb_custom_menu_order( $menu_ord ) {
+	if ( !$menu_ord ) return true;
 	return array(
 		// 'index.php', // Dashboard
 		// 'separator1', // First separator
@@ -124,14 +124,14 @@ function mb_remove_menu_pages() {
 function mb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
 	if ($image_set !== 'none') {
-		update_option('image_default_link_type', 'none');
+		update_option( 'image_default_link_type', 'none' );
 	}
 }
 
 /**
  * Show Kitchen Sink in WYSIWYG Editor
  */
-function mb_unhide_kitchensink($args) {
+function mb_unhide_kitchensink( $args ) {
 	$args['wordpress_adv_hidden'] = false;
 	return $args;
 }
@@ -183,31 +183,31 @@ function mb_footer() {
 function mb_scripts() {
 	if ( !is_admin() ) {
     	// Modernizr
-		// wp_enqueue_script('modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
+		// wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
 		// Custom plugins and scripts
-		wp_enqueue_script('customplugins', get_stylesheet_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
-		wp_enqueue_script('customscripts', get_stylesheet_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
+		wp_enqueue_script( 'customplugins', get_stylesheet_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
+		wp_enqueue_script( 'customscripts', get_stylesheet_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
 	}
 }
 
 /**
  * Remove Query Strings From Static Resources
  */
-function mb_remove_script_version($src){
-	$parts = explode('?', $src);
+function mb_remove_script_version( $src ){
+	$parts = explode( '?', $src );
 	return $parts[0];
 }
 
 /**
  * Remove Read More Jump
  */
-function mb_remove_more_jump_link($link) {
-	$offset = strpos($link, '#more-');
+function mb_remove_more_jump_link( $link ) {
+	$offset = strpos( $link, '#more-' );
 	if ($offset) {
-		$end = strpos($link, '"',$offset);
+		$end = strpos( $link, '"',$offset );
 	}
 	if ($end) {
-		$link = substr_replace($link, '', $offset, $end-$offset);
+		$link = substr_replace( $link, '', $offset, $end-$offset );
 	}
 	return $link;
 }

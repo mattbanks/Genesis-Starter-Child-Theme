@@ -10,7 +10,7 @@
  *
  */
 
-add_action('genesis_setup','child_theme_setup', 15);
+add_action( 'genesis_setup','child_theme_setup', 15 );
 function child_theme_setup() {
 
 	/****************************************
@@ -42,10 +42,10 @@ function child_theme_setup() {
 	// add_image_size( $name, $width = 0, $height = 0, $crop = false );
 
 	// Clean up Head
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', 'wp_shortlink_wp_head');
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'wp_generator' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
 	// Structural Wraps
 	add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
@@ -59,7 +59,7 @@ function child_theme_setup() {
 	//add_theme_support( 'genesis-footer-widgets', 4 );
 
 	// Execute shortcodes in widgets
-	// add_filter('widget_text', 'do_shortcode');
+	// add_filter( 'widget_text', 'do_shortcode' );
 
 	// Remove Unused Page Layouts
 	genesis_unregister_layout( 'content-sidebar-sidebar' );
@@ -106,17 +106,17 @@ function child_theme_setup() {
 	add_theme_support( 'genesis-custom-header', array( 'width' => 1140, 'height' => 100 ) );
 
 	// Remove Dashboard Meta Boxes
-	add_action('wp_dashboard_setup', 'mb_remove_dashboard_widgets' );
+	add_action( 'wp_dashboard_setup', 'mb_remove_dashboard_widgets' );
 
 	// Change Admin Menu Order
-	add_filter('custom_menu_order', 'mb_custom_menu_order');
-	add_filter('menu_order', 'mb_custom_menu_order');
+	add_filter( 'custom_menu_order', 'mb_custom_menu_order' );
+	add_filter(' menu_order', 'mb_custom_menu_order' );
 
 	// Hide Admin Areas that are not used
 	add_action( 'admin_menu', 'mb_remove_menu_pages' );
 
 	// Remove default link for images
-	add_action('admin_init', 'mb_imagelink_setup', 10);
+	add_action( 'admin_init', 'mb_imagelink_setup', 10 );
 
 	// Show Kitchen Sink in WYSIWYG Editor
 	add_filter( 'tiny_mce_before_init', 'mb_unhide_kitchensink' );
@@ -156,11 +156,11 @@ function child_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'mb_scripts' );
 
 	// Remove Query Strings From Static Resources
-	add_filter('script_loader_src', 'mb_remove_script_version', 15, 1);
-	add_filter('style_loader_src', 'mb_remove_script_version', 15, 1);
+	add_filter( 'script_loader_src', 'mb_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', 'mb_remove_script_version', 15, 1 );
 
 	// Remove Read More Jump
-	add_filter('the_content_more_link', 'mb_remove_more_jump_link');
+	add_filter( 'the_content_more_link', 'mb_remove_more_jump_link' );
 
 
 	/****************************************

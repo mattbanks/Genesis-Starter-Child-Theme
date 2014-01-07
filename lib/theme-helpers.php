@@ -28,7 +28,7 @@ function mb_add_capabilities( $posttype ) {
  * Shortcode to display current year and company name for copyright
  */
 function mb_shortcode_copyright() {
-	$copyright = '&copy; ' . date('Y') . ' ' . get_bloginfo( 'name' );
+	$copyright = '&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' );
 	return $copyright;
 }
-add_shortcode('copyright', 'mb_shortcode_copyright');
+add_shortcode( 'copyright', 'mb_shortcode_copyright' );
