@@ -50,7 +50,7 @@ function child_theme_setup() {
 	// Structural Wraps
 	add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
 
-	// Menus
+	// Unregister Secondary Nav Menu
 	add_theme_support( 'genesis-menus', array( 'primary' => 'Primary Navigation Menu' ) );
 
 	// Sidebars
