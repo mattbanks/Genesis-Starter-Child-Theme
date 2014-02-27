@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.7.0
+Version: 2.7.1
 
 ## Contributors:
 
@@ -53,6 +53,13 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 ![dependencies](https://david-dm.org/mattbanks/Genesis-Starter-Child-Theme.png)
 
 ### Changelog
+
+#### Version 2.7.1
+
+* update grunt dependencies
+* genesis 2.0.2 stylesheet
+* update comment for removing secondary nav menu in `functions.php`
+* update config.rb to reflect new `asset/styles/source` directory
 
 #### Version 2.7.0
 
