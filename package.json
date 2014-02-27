@@ -2,7 +2,7 @@
   "name": "wordpress-starter-theme",
   "version": "1.0.0",
   "dependencies": {
-    "load-grunt-tasks": "~0.3.0"
+    "load-grunt-tasks": "~0.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
