@@ -1,6 +1,6 @@
 # WordPress Genesis Starter Child Theme
 
-Version: 2.7.1
+Version: 2.7.2
 
 ## Contributors:
 
@@ -53,6 +53,11 @@ The theme includes deployments via [grunt-rsync](https://github.com/jedrichards/
 ![dependencies](https://david-dm.org/mattbanks/Genesis-Starter-Child-Theme.png)
 
 ### Changelog
+
+#### Version 2.7.2
+
+* update grunt dependencies
+* update removing version query string
 
 #### Version 2.7.1
 
