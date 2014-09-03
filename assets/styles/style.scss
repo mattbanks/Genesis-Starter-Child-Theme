@@ -11,9 +11,6 @@ Version: 1.0
 Template: genesis
 */
 
-// Compass imports
-@import "compass";
-
 // Reset, Variables, Mixins, Etc
 // DO NOT EDIT ORDER OF FILES
 @import "partials/mixins";
@@ -22,13 +19,23 @@ Template: genesis
 // Genesis
 @import "partials/genesis";
 
-// Page and Site Styles
-@import "partials/page";
-@import "partials/posts";
+// General, Typography
+@import "partials/general";
+
+// Layout
+@import "partials/header";
+@import "partials/maincontent";
+@import "partials/footer";
+
+// Menus, Page and Post styles
+@import "partials/menus";
+@import "partials/page-post";
+
+// Page Templates
+@import "partials/page-home";
+@import "partials/page-blog";
+
+// Widgets, Search, Comments, Forms, Sharing
 @import "partials/widgets";
-@import "partials/search";
 @import "partials/comments";
 @import "partials/forms";
-
-// Helper Classes
-@import "partials/helpers";
