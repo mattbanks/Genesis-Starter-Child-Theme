@@ -117,11 +117,8 @@ function child_theme_setup() {
 	// Remove default link for images
 	add_action( 'admin_init', 'mb_imagelink_setup', 10 );
 
-	// Show Kitchen Sink in WYSIWYG Editor
-	add_filter( 'tiny_mce_before_init', 'mb_unhide_kitchensink' );
-
 	// Define custom post type capabilities for use with Members
-	add_action( 'admin_init', 'mb_add_post_type_caps' );
+	// add_action( 'admin_init', 'mb_add_post_type_caps' );
 
 
 	/****************************************
