@@ -5,24 +5,6 @@ Backend Functions
 *****************************************/
 
 /**
- * Customize Contact Methods
- * @since 1.0.0
- *
- * @author Bill Erickson
- * @link http://sillybean.net/2010/01/creating-a-user-directory-part-1-changing-user-contact-fields/
- *
- * @param array $contactmethods
- * @return array
- */
-function mb_contactmethods( $contactmethods ) {
-	unset( $contactmethods['aim'] );
-	unset( $contactmethods['yim'] );
-	unset( $contactmethods['jabber'] );
-
-	return $contactmethods;
-}
-
-/**
  * Remove Genesis Theme Settings Metaboxes
  */
 function mb_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
@@ -46,30 +28,6 @@ function mb_add_inpost_layout_box() {
 		if ( post_type_supports( $type, 'genesis-layouts' ) )
 			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
 	}
-}
-
-/**
- * Don't Update Theme
- * @since 1.0.0
- *
- * If there is a theme in the repo with the same name,
- * this prevents WP from prompting an update.
- *
- * @author Mark Jaquith
- * @link http://markjaquith.wordpress.com/2009/12/14/excluding-your-plugin-or-theme-from-update-checks/
- *
- * @param array $r, request arguments
- * @param string $url, request url
- * @return array request arguments
- */
-function mb_dont_update_theme( $r, $url ) {
-	if ( 0 !== strpos( $url, 'http://api.wordpress.org/themes/update-check' ) )
-		return $r; // Not a theme update request. Bail immediately.
-	$themes = unserialize( $r['body']['themes'] );
-	unset( $themes[ get_option( 'template' ) ] );
-	unset( $themes[ get_option( 'stylesheet' ) ] );
-	$r['body']['themes'] = serialize( $themes );
-	return $r;
 }
 
 /**
@@ -128,45 +86,16 @@ function mb_imagelink_setup() {
 	}
 }
 
-/**
- * Show Kitchen Sink in WYSIWYG Editor
- */
-function mb_unhide_kitchensink( $args ) {
-	$args['wordpress_adv_hidden'] = false;
-	return $args;
-}
-
 
 /****************************************
 Frontend
 *****************************************/
 
 /**
- * HTML5 DOCTYPE
- * removes the default Genesis doctype, adds new html5 doctype with IE8 detection
-*/
-function mb_html5_doctype() {
-?>
-<!DOCTYPE html>
-<!--[if IE 8]> <html class="lt-ie9" <?php language_attributes( 'html' ); ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html <?php language_attributes( 'html' ); ?>> <!--<![endif]-->
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<?php
-}
-
-/**
- * Load custom favicon to header
- */
-function mb_custom_favicon_filter( $favicon_url ) {
-	return get_stylesheet_directory_uri() . '/images/favicon.ico';
-}
-
-/**
  * Load apple touch icon in header
  */
 function mb_apple_touch_icon() {
-	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/images/apple-touch-icon.png">';
+	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/images/apple-touch-icon.png" />' . "\n";
 }
 
 /**
@@ -182,8 +111,6 @@ function mb_footer() {
  */
 function mb_scripts() {
 	if ( !is_admin() ) {
-    	// Modernizr
-		// wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, NULL );
 		// Custom plugins and scripts
 		wp_enqueue_script( 'customplugins', get_stylesheet_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), NULL, true );
 		wp_enqueue_script( 'customscripts', get_stylesheet_directory_uri() . '/assets/js/main.min.js', array('jquery'), NULL, true );
