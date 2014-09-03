@@ -138,7 +138,7 @@ function child_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 
 	// Load Apple touch icon in header
-	add_filter( 'genesis_meta', 'mb_apple_touch_icon' );
+	add_action( 'wp_head', 'mb_apple_touch_icon', 9 );
 
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
