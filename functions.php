@@ -48,14 +48,26 @@ function child_theme_setup() {
 	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
 	// Structural Wraps
-	add_theme_support( 'genesis-structural-wraps', array( 'header', 'nav', 'subnav', 'inner', 'footer-widgets', 'footer' ) );
+	add_theme_support( 'genesis-structural-wraps', array(
+		'header',
+		'nav',
+		'subnav',
+		'inner',
+		'footer-widgets',
+		'footer'
+	) );
 
 	// Unregister Secondary Nav Menu
-	add_theme_support( 'genesis-menus', array( 'primary' => 'Primary Navigation Menu' ) );
+	add_theme_support( 'genesis-menus', array(
+		'primary' => 'Primary Navigation Menu'
+	) );
 
 	// Sidebars
 	unregister_sidebar( 'sidebar-alt' );
-	genesis_register_sidebar( array( 'name' => 'Footer', 'id' => 'custom-footer' ) );
+	genesis_register_sidebar( array(
+		'name' => 'Footer',
+		'id' => 'custom-footer'
+	) );
 	//add_theme_support( 'genesis-footer-widgets', 4 );
 
 	// Execute shortcodes in widgets
@@ -109,7 +121,7 @@ function child_theme_setup() {
 
 	// Change Admin Menu Order
 	add_filter( 'custom_menu_order', 'mb_custom_menu_order' );
-	add_filter(' menu_order', 'mb_custom_menu_order' );
+	add_filter( 'menu_order', 'mb_custom_menu_order' );
 
 	// Hide Admin Areas that are not used
 	add_action( 'admin_menu', 'mb_remove_menu_pages' );
