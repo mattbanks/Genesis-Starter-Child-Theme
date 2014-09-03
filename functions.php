@@ -99,7 +99,10 @@ function child_theme_setup() {
 	add_theme_support( 'custom-background' );
 
 	// Add support for custom header
-	add_theme_support( 'genesis-custom-header', array( 'width' => 1140, 'height' => 100 ) );
+	add_theme_support( 'genesis-custom-header', array(
+		'width' => 960,
+		'height' => 80
+	) );
 
 	// Remove Dashboard Meta Boxes
 	add_action( 'wp_dashboard_setup', 'mb_remove_dashboard_widgets' );
