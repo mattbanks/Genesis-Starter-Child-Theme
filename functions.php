@@ -126,7 +126,13 @@ function child_theme_setup() {
 	*****************************************/
 
 	// Add HTML5 markup structure
-	add_theme_support( 'html5' );
+	add_theme_support( 'html5', array(
+		'comment-list',
+		'search-form',
+		'comment-form',
+		'gallery',
+		'caption',
+	) );
 
 	// Add viewport meta tag for mobile browsers
 	add_theme_support( 'genesis-responsive-viewport' );
