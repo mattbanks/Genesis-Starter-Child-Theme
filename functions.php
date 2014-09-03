@@ -86,9 +86,6 @@ function child_theme_setup() {
 	remove_action( 'admin_menu', 'genesis_add_inpost_layout_box' );
 	add_action( 'admin_menu', 'mb_add_inpost_layout_box' );
 
-	// Don't update theme
-	add_filter( 'http_request_args', 'mb_dont_update_theme', 5, 2 );
-
 	// Setup Child Theme Settings
 	include_once( CHILD_DIR . '/lib/child-theme-settings.php' );
 
