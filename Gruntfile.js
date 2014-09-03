@@ -6,11 +6,11 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        // watch for changes and trigger compass, jshint, uglify and livereload
+        // watch for changes and trigger sass, jshint, uglify and livereload
         watch: {
-            compass: {
-                files: ['assets/styles/source/**/*.{scss,sass}'],
-                tasks: ['compass']
+            sass: {
+                files: ['assets/styles/**/*.{scss,sass}'],
+                tasks: ['sass', 'autoprefixer', 'cssmin']
             },
             js: {
                 files: '<%= jshint.all %>',
@@ -19,20 +19,46 @@ module.exports = function(grunt) {
             images: {
                 files: ['assets/images/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin']
-            },
-            livereload: {
-                options: { livereload: true },
-                files: ['style.css', 'assets/js/*.js', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
             }
         },
 
-        // compass and scss
-        compass: {
+        // sass
+        sass: {
             dist: {
                 options: {
-                    config: 'config.rb',
-                    force: true
+                    style: 'expanded',
+                },
+                files: {
+                    'assets/styles/build/style.css': 'assets/styles/style.scss',
+                    'assets/styles/build/editor-style.css': 'assets/styles/editor-style.scss'
                 }
+            }
+        },
+
+        // autoprefixer
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 9', 'ios 6', 'android 4'],
+                map: true
+            },
+            files: {
+                expand: true,
+                flatten: true,
+                src: 'assets/styles/build/*.css',
+                dest: 'assets/styles/build'
+            },
+        },
+
+        // css minify
+        cssmin: {
+            options: {
+                keepSpecialComments: 1
+            },
+            minify: {
+                expand: true,
+                cwd: 'assets/styles/build',
+                src: ['*.css', '!*.min.css'],
+                ext: '.css'
             }
         },
 
@@ -59,6 +85,8 @@ module.exports = function(grunt) {
                 files: {
                     'assets/js/plugins.min.js': [
                         'assets/js/source/plugins.js',
+                        'assets/js/vendor/navigation.js',
+                        'assets/js/vendor/skip-link-focus-fix.js',
                         // 'assets/js/vendor/yourplugin/yourplugin.js',
                     ]
                 }
@@ -94,6 +122,19 @@ module.exports = function(grunt) {
             }
         },
 
+        // browserSync
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : ['style.css', 'assets/js/*.js', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+                },
+                options: {
+                    proxy: "local.dev",
+                    watchTask: true
+                }
+            }
+        },
+
         // deploy via rsync
         deploy: {
             options: {
@@ -104,7 +145,7 @@ module.exports = function(grunt) {
                 syncDestIgnoreExcl: true
             },
             staging: {
-                options: {
+                 options: {
                     dest: "~/path/to/theme",
                     host: "user@host.com"
                 }
@@ -123,6 +164,6 @@ module.exports = function(grunt) {
     grunt.renameTask('rsync', 'deploy');
 
     // register task
-    grunt.registerTask('default', ['compass', 'uglify', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'imagemin', 'browserSync', 'watch']);
 
 };
