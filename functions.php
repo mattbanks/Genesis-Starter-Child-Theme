@@ -67,15 +67,14 @@ function child_theme_setup() {
 	genesis_unregister_layout( 'sidebar-content-sidebar' );
 
 	// Remove Unused User Settings
-	add_filter( 'user_contactmethods', 'mb_contactmethods' );
-	remove_action( 'show_user_profile', 'genesis_user_options_fields' );
-	remove_action( 'edit_user_profile', 'genesis_user_options_fields' );
-	remove_action( 'show_user_profile', 'genesis_user_archive_fields' );
-	remove_action( 'edit_user_profile', 'genesis_user_archive_fields' );
-	remove_action( 'show_user_profile', 'genesis_user_seo_fields' );
-	remove_action( 'edit_user_profile', 'genesis_user_seo_fields' );
-	remove_action( 'show_user_profile', 'genesis_user_layout_fields' );
-	remove_action( 'edit_user_profile', 'genesis_user_layout_fields' );
+	// remove_action( 'show_user_profile', 'genesis_user_options_fields' );
+	// remove_action( 'edit_user_profile', 'genesis_user_options_fields' );
+	// remove_action( 'show_user_profile', 'genesis_user_archive_fields' );
+	// remove_action( 'edit_user_profile', 'genesis_user_archive_fields' );
+	// remove_action( 'show_user_profile', 'genesis_user_seo_fields' );
+	// remove_action( 'edit_user_profile', 'genesis_user_seo_fields' );
+	// remove_action( 'show_user_profile', 'genesis_user_layout_fields' );
+	// remove_action( 'edit_user_profile', 'genesis_user_layout_fields' );
 
 	// Editor Styles
 	add_editor_style( 'editor-style.css' );
