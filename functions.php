@@ -137,13 +137,6 @@ function child_theme_setup() {
 	// Add viewport meta tag for mobile browsers
 	add_theme_support( 'genesis-responsive-viewport' );
 
-	// HTML5 doctype with conditional classes
-	remove_action( 'genesis_doctype', 'genesis_do_doctype' );
-	add_action( 'genesis_doctype', 'mb_html5_doctype' );
-
-	// Load custom favicon to header
-	add_filter( 'genesis_pre_load_favicon', 'mb_custom_favicon_filter' );
-
 	// Load Apple touch icon in header
 	add_filter( 'genesis_meta', 'mb_apple_touch_icon' );
 
