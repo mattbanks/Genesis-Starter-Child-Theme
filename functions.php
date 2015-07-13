@@ -198,3 +198,10 @@ add_action( 'custom_disable_superfish', 'mb_unregister_superfish' );
 
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'mb_filter_yoast_seo_metabox' );
+
+//enqueue the parent and child theme stylesheets
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'parent-style' ) );
+}
